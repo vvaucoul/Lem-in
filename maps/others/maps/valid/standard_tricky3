@@ -1,0 +1,34 @@
+20
+##start
+Start 210 240
+A 220 2240
+B 240 240
+C 260 240
+##end
+End 280 240
+D 260 220
+E 230 220
+F 250 210
+G 280 210
+H 220 250
+I 213 250
+J 210 260
+K 230 260
+M 260 260
+Start-A
+A-B
+B-C
+C-End
+B-D
+D-End
+A-E
+E-F
+F-G
+G-End
+Start-H
+H-I
+I-B
+Start-J
+J-K
+K-M
+M-C

@@ -1,0 +1,71 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vvaucoul <vvaucoul@student.42.Fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/01/28 17:28:36 by vvaucoul          #+#    #+#             */
+/*   Updated: 2022/05/19 00:13:38 by vvaucoul         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "libft.h"
+
+static int n_lenght(int n)
+{
+    int nsize;
+
+    nsize = 0;
+    if (n > -2147483648 && n < 0)
+    {
+        ++nsize;
+        n *= -1;
+    }
+    else if (n == 0)
+        return (1);
+    else if (n == -2147483648)
+        return (11);
+    while (n >= 1)
+    {
+        n /= 10;
+        ++nsize;
+    }
+    return (nsize);
+}
+
+static int is_min_int(int n, char **str)
+{
+    if (n != -2147483648)
+        return (0);
+    *str = ft_strdup("-2147483648");
+    return (1);
+}
+
+char *ft_itoa(int n)
+{
+    int i;
+    int size;
+    char *str;
+    int isneg;
+
+    size = n_lenght(n);
+    str = malloc(sizeof(char) * (n_lenght(n) + 1));
+    if (!str)
+        return (NULL);
+    if (is_min_int(n, &str) == 1)
+        return (str);
+    if ((isneg = ((n >= -2147483647 && n < 0) ? 1 : 0)) == 1)
+        n *= -1;
+    i = (isneg ? 1 : 1);
+    while (size - i >= 0)
+    {
+        str[size - i] = n % 10 + 48;
+        n /= 10;
+        ++i;
+    }
+    if (isneg)
+        str[0] = '-';
+    str[size] = '\0';
+    return (str);
+}

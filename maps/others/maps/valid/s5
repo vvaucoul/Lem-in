@@ -1,0 +1,46 @@
+3
+##start
+Start 0 0
+A 1 1
+B 2 2
+C 3 3
+K 12 12
+4 13 13
+P 17 17
+Q 18 18
+R 19 19
+S 20 20
+T 21 21
+U 22 22
+V 23 23
+W 24 24
+X 25 25
+Y 26 26
+Z 27 27
+1 28 28
+2 29 29
+3 30 30
+##end
+End 31 31
+Start-A
+A-B
+B-C
+C-End
+Start-Q
+Q-R
+R-S
+S-T
+T-U
+U-V
+V-P
+P-End
+Start-K
+K-4
+4-W
+W-X
+X-Y
+Y-Z
+Z-1
+1-2
+2-3
+3-End
