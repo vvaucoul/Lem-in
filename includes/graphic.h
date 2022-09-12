@@ -6,7 +6,7 @@
 /*   By: mle-faou <mle-faou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 00:11:41 by mle-faou          #+#    #+#             */
-/*   Updated: 2022/07/18 15:05:42 by mle-faou         ###   ########.fr       */
+/*   Updated: 2022/09/08 15:50:47 by mle-faou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 #include "lem_in.h"
 #include "ai.h"
+#include "ai-utils.h"
 
 #include "../MLX42/include/MLX42/MLX42.h"
 
@@ -22,10 +23,15 @@
 #define WINDOW_WIDTH (WINDOW_HEIGHT * 16 / 9)
 
 #define MLX_WHITE 0xFFFFFFFF
-#define MLX_RED 0xFF0000FF
-#define MLX_GREEN 0x00FF00FF
-#define MLX_BLUE 0x0000FFFF
-#define MLX_BLACK 0x000000FF
+// #define MLX_WHITE 0xC3BFBCFF
+// #define MLX_RED 0xFF0000FF
+#define MLX_RED 0xFF6065FF
+// #define MLX_GREEN 0x00FF00FF
+#define MLX_GREEN 0x278550FF
+// #define MLX_BLUE 0x0000FFFF
+#define MLX_BLUE 0x3B42A8FF
+// #define MLX_BLACK 0x000000FF
+#define MLX_BLACK 0x24201FFF
 
 typedef struct s_turn t_turn;
 

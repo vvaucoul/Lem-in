@@ -1,31 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   ai-ggc.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vvaucoul <vvaucoul@student.42.Fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/04 16:01:16 by mle-faou          #+#    #+#             */
-/*   Updated: 2022/09/07 19:51:40 by vvaucoul         ###   ########.fr       */
+/*   Created: 2022/09/07 19:45:26 by vvaucoul          #+#    #+#             */
+/*   Updated: 2022/09/07 19:45:44 by vvaucoul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/lem_in.h"
+#ifndef AI_GCC_H
+# define AI_GCC_H
 
-int ft_strstr(char *s1, char *s2)
-{
-    int i;
-    int j;
+extern int __add_gcc_ek(void *ptr);
+extern void __free_gcc_ek(void);
 
-    i = 0;
-    while (s1[i])
-    {
-        j = 0;
-        while (s2[j] && s1[i + j] == s2[j])
-            j++;
-        if (!s2[j])
-            return (i);
-        i++;
-    }
-    return (-1);
-}
+#endif /* !AI_GCC_H */

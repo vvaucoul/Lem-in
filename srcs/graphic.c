@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   graphic.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vvaucoul <vvaucoul@student.42.Fr>          +#+  +:+       +#+        */
+/*   By: mle-faou <mle-faou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 22:10:19 by mle-faou          #+#    #+#             */
-/*   Updated: 2022/07/19 00:26:20 by vvaucoul         ###   ########.fr       */
+/*   Updated: 2022/09/09 12:18:34 by mle-faou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -241,6 +241,9 @@ int write_text(char *text, int to_free, int x, int y)
     {
         for (int x_bg = x - bg_offset; x_bg < x + bg_offset + text_len * 10; x_bg++)
         {
+            // check if outside of window
+            if (x_bg < 0 || x_bg >= WINDOW_WIDTH || y_bg < 0 || y_bg >= WINDOW_HEIGHT)
+                continue;
             mlx_put_pixel(g_graph.frame, x_bg, y_bg, MLX_BLACK);
         }
     }
@@ -294,8 +297,8 @@ int draw_map(void)
         if (ft_strcmp(ant_value, "No ant"))
         {
             int new_width = distance_to_pixel(g_graph.room_radius * 0.1);
-            if (new_width < 1)
-                new_width = 1;
+            if (new_width < 3)
+                new_width = 3;
             draw_circle(x_pixel, y_pixel, distance_to_pixel(g_graph.room_radius) + new_width, MLX_RED);
         }
         if (get_start_room()->id == g_gameinfo.map[i]->id)
@@ -316,6 +319,8 @@ int draw_map(void)
         y_pixel -= distance_to_pixel(g_graph.room_radius * 0.5);
         write_text(g_gameinfo.map[i]->name, 0, x_pixel, y_pixel);
         write_text(ant_value, 1, x_pixel, y_pixel + 20);
+        char *val = "";
+        write_text(val, 0, x_pixel, y_pixel + 20);
     }
     return (0);
 }

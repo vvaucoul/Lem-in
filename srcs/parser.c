@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vvaucoul <vvaucoul@student.42.Fr>          +#+  +:+       +#+        */
+/*   By: mle-faou <mle-faou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/04 15:36:20 by mle-faou          #+#    #+#             */
-/*   Updated: 2022/07/20 19:24:22 by vvaucoul         ###   ########.fr       */
+/*   Updated: 2022/09/05 15:05:20 by mle-faou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -152,11 +152,16 @@ int parser(void)
     char *line = NULL;
     int line_num = 0;
     int next_room_type = 0; // 0: normal, 1: start, 2: end
-    int parser_state = 0;   // 0: nothing, 1: reading ant count, 2: reading room, 3: reading link,
+    int parser_state = 0; // 0: nothing, 1: reading ant count, 2: reading room, 3: reading link,
     int gnl_ret = 0;
     do
     {
         gnl_ret = get_next_line(0, &line);
+        if (gnl_ret == -1)
+        {
+            printf("Error: get_next_line failed\n");
+            return (1);
+        }
         line_num++;
         for (int i = 0; line[i]; i++)
         {

@@ -6,7 +6,7 @@
 /*   By: vvaucoul <vvaucoul@student.42.Fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/04 14:55:48 by vvaucoul          #+#    #+#             */
-/*   Updated: 2022/07/19 00:05:57 by vvaucoul         ###   ########.fr       */
+/*   Updated: 2022/09/07 20:10:07 by vvaucoul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@ int main(int argc, const char *argv[])
         return (1);
     print_map_config();
     g_turns = NULL;
-    ai_main();
+    if (ai_main())
+        return (1);
     if (argc == 2 && !ft_strcmp(argv[1], "-g"))
     {
         if (!ft_strcmp(argv[1], "-g"))
